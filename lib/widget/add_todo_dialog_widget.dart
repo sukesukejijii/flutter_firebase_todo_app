@@ -92,16 +92,6 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
               onSavedTodo: () {
                 if (widget.todo == null) {
                   addTodo();
-                  // final position =
-                  //     context.read(scrollControllerProvider).position;
-                  // position.animateTo(
-                  //   position.maxScrollExtent + 150,
-                  //   duration: Duration(
-                  //     milliseconds:
-                  //         300 + 3 * context.read(todosProvider).getTodos.length,
-                  //   ),
-                  //   curve: Curves.easeInOutSine,
-                  // );
                 } else {
                   editTodo(widget.todo!);
                 }
