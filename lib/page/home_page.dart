@@ -7,8 +7,15 @@ import 'package:firebase_setup/widget/add_todo_dialog_widget.dart';
 import 'package:firebase_setup/widget/todo_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends ConsumerWidget {
+  void _launchURL(String url) async {
+    await canLaunch(url)
+        ? await launch(url)
+        : throw Exception('Could not launch');
+  }
+
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final int selectedIndex = watch(selectedPageProvider).state;
@@ -28,6 +35,13 @@ class HomePage extends ConsumerWidget {
           style: TextStyle(color: Colors.white70),
         ),
         leadingWidth: 300,
+        actions: [
+          IconButton(
+              icon: Icon(Icons.library_books_rounded),
+              tooltip: 'GitHub',
+              onPressed: () => _launchURL(
+                  'https://github.com/sukesukejijii/flutter_firebase_todo_app'))
+        ],
       ),
       body: StreamBuilder(
         stream: FirebaseApi.readTodos(),
@@ -48,6 +62,7 @@ class HomePage extends ConsumerWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Add Task',
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),

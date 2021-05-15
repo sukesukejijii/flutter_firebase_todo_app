@@ -22,10 +22,7 @@ class TodoWidget extends StatelessWidget {
           hoverColor: Colors.yellow.withOpacity(0.50),
           minVerticalPadding: 20,
           leading: Checkbox(
-            fillColor: MaterialStateProperty.all<Color>(
-              Theme.of(context).primaryColor,
-            ),
-            hoverColor: Theme.of(context).accentColor,
+            hoverColor: Colors.yellow,
             value: todo.isDone,
             onChanged: (_) {
               context.read(todosProvider).toggleTodo(todo);
@@ -41,16 +38,21 @@ class TodoWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Theme.of(context).primaryColor,
               fontSize: 22,
+              fontFamilyFallback: ['Color Emoji'],
             ),
           ),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 15),
             child: Text(
               todo.description,
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                fontSize: 18,
+                fontFamilyFallback: ['Color Emoji'],
+              ),
             ),
           ),
           trailing: IconButton(
+            tooltip: 'Delete Task',
             icon: Icon(Icons.delete),
             onPressed: () {
               context.read(todosProvider).deleteTodo(todo);

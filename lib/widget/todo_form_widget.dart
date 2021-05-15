@@ -37,11 +37,14 @@ class TodoFormWidget extends StatelessWidget {
       maxLines: 1,
       autofocus: true,
       initialValue: title,
-      onChanged: onChangedTitle,
+      style: TextStyle(
+        fontFamilyFallback: ['Color Emoji'],
+      ),
       decoration: InputDecoration(
         border: UnderlineInputBorder(),
         labelText: 'Title',
       ),
+      onChanged: onChangedTitle,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Title cannot be empty';
@@ -55,11 +58,14 @@ class TodoFormWidget extends StatelessWidget {
       minLines: 5,
       maxLines: 10,
       initialValue: description,
-      onChanged: onChangedDescription,
+      style: TextStyle(
+        fontFamilyFallback: ['Color Emoji'],
+      ),
       decoration: InputDecoration(
         border: UnderlineInputBorder(),
         labelText: 'Description',
       ),
+      onChanged: onChangedDescription,
     );
   }
 

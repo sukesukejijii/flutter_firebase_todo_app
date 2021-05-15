@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: ThemeData(
         primaryColor: Colors.teal[700],
-        accentColor: Colors.yellowAccent,
+        accentColor: Colors.teal[700],
         scaffoldBackgroundColor: Color(0xFFf6f5ee),
+        fontFamily: 'KosugiMaru',
       ),
       home: HomePage(),
     );
