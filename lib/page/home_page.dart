@@ -84,7 +84,7 @@ class HomePage extends ConsumerWidget {
             label: 'Completed',
           ),
         ],
-        unselectedItemColor: Colors.black45,
+        unselectedItemColor: Colors.grey,
         currentIndex: context.read(selectedPageProvider).state,
       ),
     );

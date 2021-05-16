@@ -53,13 +53,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: KosugiMaru
-      fonts:
-        - asset: fonts/KosugiMaru-Regular.ttf
-    - family: Color Emoji
-      fonts:
-        - asset: fonts/Apple Color Emoji.ttc
+  # fonts:
+  #   - family: KosugiMaru
+  #     fonts:
+  #       - asset: fonts/KosugiMaru-Regular.ttf
+  #   - family: Color Emoji
+  #     fonts:
+  #       - asset: fonts/Apple Color Emoji.ttc
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

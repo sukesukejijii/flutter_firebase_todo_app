@@ -38,17 +38,13 @@ class TodoWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Theme.of(context).primaryColor,
               fontSize: 22,
-              fontFamilyFallback: ['Color Emoji'],
             ),
           ),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 15),
             child: Text(
               todo.description,
-              style: TextStyle(
-                fontSize: 18,
-                fontFamilyFallback: ['Color Emoji'],
-              ),
+              style: TextStyle(fontSize: 18),
             ),
           ),
           trailing: IconButton(

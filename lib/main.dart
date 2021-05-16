@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.teal[700],
         accentColor: Colors.teal[700],
         scaffoldBackgroundColor: Color(0xFFf6f5ee),
-        fontFamily: 'KosugiMaru',
       ),
       home: HomePage(),
     );

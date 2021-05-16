@@ -37,9 +37,6 @@ class TodoFormWidget extends StatelessWidget {
       maxLines: 1,
       autofocus: true,
       initialValue: title,
-      style: TextStyle(
-        fontFamilyFallback: ['Color Emoji'],
-      ),
       decoration: InputDecoration(
         border: UnderlineInputBorder(),
         labelText: 'Title',
@@ -58,9 +55,6 @@ class TodoFormWidget extends StatelessWidget {
       minLines: 5,
       maxLines: 10,
       initialValue: description,
-      style: TextStyle(
-        fontFamilyFallback: ['Color Emoji'],
-      ),
       decoration: InputDecoration(
         border: UnderlineInputBorder(),
         labelText: 'Description',
