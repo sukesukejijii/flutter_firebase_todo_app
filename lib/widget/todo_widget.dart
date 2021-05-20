@@ -14,9 +14,12 @@ class TodoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Material(
+    return Card(
+      elevation: 3,
+      margin: EdgeInsets.all(9),
+      child: Container(
+        width: 360,
+        height: 240,
         child: ListTile(
           tileColor: Colors.white.withOpacity(0.75),
           hoverColor: Colors.yellow.withOpacity(0.15),
@@ -34,6 +37,7 @@ class TodoWidget extends StatelessWidget {
           ),
           title: Text(
             todo.title,
+            overflow: TextOverflow.fade,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Theme.of(context).primaryColor,
@@ -44,6 +48,7 @@ class TodoWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 15),
             child: Text(
               todo.description,
+              overflow: TextOverflow.fade,
               style: TextStyle(fontSize: 18),
             ),
           ),

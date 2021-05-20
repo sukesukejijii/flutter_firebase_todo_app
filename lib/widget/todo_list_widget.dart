@@ -1,4 +1,3 @@
-import 'package:firebase_setup/provider/providers.dart';
 import 'package:firebase_setup/provider/todos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,23 +5,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'todo_widget.dart';
 
 class TodoListWidget extends StatelessWidget {
-  final int selectedIndex;
+  final int selectedTab;
 
-  TodoListWidget(this.selectedIndex);
+  TodoListWidget(this.selectedTab);
 
   @override
   Widget build(BuildContext context) {
     return Consumer(
       child: Center(
         child: Text(
-          selectedIndex == 0
-              ? 'All Tasks Completed!!'
-              : 'No Completed Tasks...',
+          selectedTab == 0 ? 'All Tasks Completed!!' : 'No Completed Tasks...',
           style: TextStyle(fontSize: 20),
         ),
       ),
       builder: (context, watch, child) {
-        final todos = selectedIndex == 0
+        final todos = selectedTab == 0
             ? watch(todosProvider).getTodos
             : watch(todosProvider).getDone;
 
@@ -30,22 +27,15 @@ class TodoListWidget extends StatelessWidget {
           return child!;
         }
 
-        return Scrollbar(
-          controller: context.read(scrollControllerProvider),
-          thickness: 12,
-          isAlwaysShown: true,
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 500,
-              mainAxisExtent: 250,
-              childAspectRatio: 2 / 1,
-              crossAxisSpacing: 30,
-              mainAxisSpacing: 30,
+        return Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Wrap(
+              children: [
+                for (var todo in todos) TodoWidget(todo: todo),
+              ],
             ),
-            itemBuilder: (context, index) => TodoWidget(todo: todos[index]),
-            controller: context.read(scrollControllerProvider),
-            itemCount: todos.length,
-            padding: EdgeInsets.all(30),
           ),
         );
       },
