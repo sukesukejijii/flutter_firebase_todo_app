@@ -19,7 +19,7 @@ class TodoWidget extends StatelessWidget {
       child: Material(
         child: ListTile(
           tileColor: Colors.white.withOpacity(0.75),
-          hoverColor: Colors.yellow.withOpacity(0.50),
+          hoverColor: Colors.yellow.withOpacity(0.15),
           minVerticalPadding: 20,
           leading: Checkbox(
             hoverColor: Colors.yellow,

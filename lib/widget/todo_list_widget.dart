@@ -34,12 +34,18 @@ class TodoListWidget extends StatelessWidget {
           controller: context.read(scrollControllerProvider),
           thickness: 12,
           isAlwaysShown: true,
-          child: ListView.separated(
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 500,
+              mainAxisExtent: 250,
+              childAspectRatio: 2 / 1,
+              crossAxisSpacing: 30,
+              mainAxisSpacing: 30,
+            ),
+            itemBuilder: (context, index) => TodoWidget(todo: todos[index]),
             controller: context.read(scrollControllerProvider),
             itemCount: todos.length,
-            itemBuilder: (context, index) => TodoWidget(todo: todos[index]),
-            separatorBuilder: (context, index) => Container(height: 18),
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(30),
           ),
         );
       },

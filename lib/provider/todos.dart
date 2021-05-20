@@ -20,16 +20,10 @@ class Todos extends ChangeNotifier {
   }
 
   void addTodo(Todo todo) {
-    // _todos.add(todo);
-    // notifyListeners();
-
     FirebaseApi.createTodo(todo);
   }
 
   bool toggleTodo(Todo todo) {
-    // todo.isDone = !todo.isDone;
-    // notifyListeners();
-
     todo.isDone = !todo.isDone;
     FirebaseApi.updateTodo(todo);
 
@@ -37,17 +31,10 @@ class Todos extends ChangeNotifier {
   }
 
   void deleteTodo(Todo todo) {
-    // _todos.remove(todo);
-    // notifyListeners();
-
     FirebaseApi.deleteTodo(todo);
   }
 
   void updateTodo(Todo todo) {
-    // final todoIndex = _todos.indexWhere((t) => t.id == todo.id);
-    // _todos.replaceRange(todoIndex, todoIndex + 1, [todo]);
-    // notifyListeners();
-
     FirebaseApi.updateTodo(todo);
   }
 }

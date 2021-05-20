@@ -3,7 +3,6 @@ import '../utils.dart';
 class Todo {
   DateTime createdTime;
   String title;
-
   String id;
   String description;
   bool isDone;
