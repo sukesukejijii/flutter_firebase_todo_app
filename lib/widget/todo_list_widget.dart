@@ -27,14 +27,16 @@ class TodoListWidget extends StatelessWidget {
           return child!;
         }
 
-        return Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: Wrap(
-              children: [
-                for (var todo in todos) TodoWidget(todo: todo),
-              ],
+        return SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 15),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Wrap(
+                children: [
+                  for (var todo in todos) TodoWidget(todo: todo),
+                ],
+              ),
             ),
           ),
         );
